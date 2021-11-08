@@ -10,3 +10,6 @@ npx crcf -f  --notest --typescript LoginPage
 
 // src/components/pages
 npx crcf -f  --notest --typescript LoginPage RegisterPage ReportPage StockPage StockCreatePage StockEditPage TransactionPage ShopPage
+
+// src/components/layouts
+npx crcf -f  --notest --typescript Header Menu
