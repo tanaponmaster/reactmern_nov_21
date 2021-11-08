@@ -14,8 +14,9 @@ const LoginPage: React.FC<any> = () => {
   interface Account {
     username: string;
     password: string;
+    level?: string;
   }
-  
+
   const [account, setAccount] = React.useState<Account>({
     username: "",
     password: "",
