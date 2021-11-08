@@ -5,11 +5,11 @@ type LoginPageProps = {
 };
 
 const LoginPage: React.FC<any> = () => {
-  
   // no side-effect
   // let username = "lek";
 
-  const [username, setUsername] = React.useState("lek")
+  const [username, setUsername] = React.useState("");
+  const [password, setPassword] = React.useState("");
 
   return (
     <div>
@@ -25,9 +25,20 @@ const LoginPage: React.FC<any> = () => {
         }}
       />
       <br />
-      <input type="text" name="password" id="password" />
+      <input
+        type="text"
+        name="password"
+        id="password"
+        onChange={(e) => {
+          // username = e.target.value;
+          setPassword(e.target.value);
+          console.log(password);
+        }}
+      />
       <br />
-      <span>#Debug: {username}</span>
+      <span>
+        #Debug: {username}:{password}
+      </span>
       <br />
       <button onClick={() => alert(username)}>Login</button>
     </div>
