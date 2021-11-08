@@ -10,7 +10,14 @@ const LoginPage: React.FC<any> = () => {
   return (
     <div>
       <h1>Login</h1>
-      <input type="text" name="username" id="username" />
+      <input
+        type="text"
+        name="username"
+        id="username"
+        onChange={(e) => {
+          console.log(e.target.value);
+        }}
+      />
       <br />
       <input type="text" name="password" id="password" />
       <br />
