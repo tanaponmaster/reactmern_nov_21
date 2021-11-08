@@ -11,7 +11,7 @@ const LoginPage: React.FC<any> = () => {
   // const [username, setUsername] = React.useState("");
   // const [password, setPassword] = React.useState("");
 
-  const [account, setAccount] = React.useState({
+  const [account, setAccount] = React.useState<any>({
     username: "",
     password: "",
   });
@@ -19,9 +19,19 @@ const LoginPage: React.FC<any> = () => {
   return (
     <div>
       <h1>Login</h1>
-      <input type="text" name="username" id="username" onChange={(e) => {}} />
+      <input
+        type="text"
+        name="username"
+        id="username"
+        onChange={(e) => setAccount({ username: e.target.value })}
+      />
       <br />
-      <input type="text" name="password" id="password" onChange={(e) => {}} />
+      <input
+        type="text"
+        name="password"
+        id="password"
+        onChange={(e) => setAccount({ password: e.target.value })}
+      />
       <br />
       <span>#Debug: {JSON.stringify(account)}</span>
       <br />
