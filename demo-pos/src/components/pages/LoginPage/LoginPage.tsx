@@ -8,39 +8,24 @@ const LoginPage: React.FC<any> = () => {
   // no side-effect
   // let username = "lek";
 
-  const [username, setUsername] = React.useState("");
-  const [password, setPassword] = React.useState("");
+  // const [username, setUsername] = React.useState("");
+  // const [password, setPassword] = React.useState("");
+
+  const [account, setAccount] = React.useState({
+    username: "",
+    password: "",
+  });
 
   return (
     <div>
       <h1>Login</h1>
-      <input
-        type="text"
-        name="username"
-        id="username"
-        onChange={(e) => {
-          // username = e.target.value;
-          setUsername(e.target.value);
-          console.log(username);
-        }}
-      />
+      <input type="text" name="username" id="username" onChange={(e) => {}} />
       <br />
-      <input
-        type="text"
-        name="password"
-        id="password"
-        onChange={(e) => {
-          // username = e.target.value;
-          setPassword(e.target.value);
-          console.log(password);
-        }}
-      />
+      <input type="text" name="password" id="password" onChange={(e) => {}} />
       <br />
-      <span>
-        #Debug: {username}:{password}
-      </span>
+      <span>#Debug: {JSON.stringify(account)}</span>
       <br />
-      <button onClick={() => alert(username)}>Login</button>
+      <button onClick={() => alert(JSON.stringify(account))}>Login</button>
     </div>
   );
 };
