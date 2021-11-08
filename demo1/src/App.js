@@ -3,7 +3,9 @@ import React from 'react'
 export default function App() {
   return (
     <div>
-      <h1>1234</h1>
+      {/* JSX */}
+      <h1>{Math.random()}</h1>
+      {[1,2,3,4].map(item=><h2>{item}</h2>)}
     </div>
   )
 }
