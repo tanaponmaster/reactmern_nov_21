@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import LoginPage from "./components/pages/LoginPage";
+import LoginPage from "./components/pages/LoginPage/";
 
 interface Props {}
 

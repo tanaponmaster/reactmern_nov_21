@@ -6,3 +6,7 @@ npm i axios chart.js react-chartjs-2 react-moment react-number-format redux reac
 # Install create-react-component-folder 
 yarn add create-react-component-folder
 npx crcf -f  --notest --typescript LoginPage
+
+
+// src/components/pages
+npx crcf -f  --notest --typescript LoginPage RegisterPage ReportPage StockPage StockCreatePage StockEditPage TransactionPage ShopPage
