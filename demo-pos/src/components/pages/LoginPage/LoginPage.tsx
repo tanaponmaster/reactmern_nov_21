@@ -4,8 +4,9 @@ type LoginPageProps = {
   //
 };
 
-
 const LoginPage: React.FC<any> = () => {
+  let username = "lek";
+
   return (
     <div>
       <h1>Login</h1>
@@ -13,7 +14,7 @@ const LoginPage: React.FC<any> = () => {
       <br />
       <input type="text" name="password" id="password" />
       <br />
-      <button onClick={()=>{alert("Login")}} >Login</button>
+      <button onClick={() => alert(username)}>Login</button>
     </div>
   );
 };
