@@ -1,5 +1,6 @@
 import React, { ReactElement } from "react";
 import LoginPage from "./LoginPage";
+import RegisterPage from "./RegisterPage";
 
 // // const data = [1,2,3,4,5,6]
 // const data = [
@@ -25,7 +26,7 @@ export default function App({}: Props): ReactElement {
 
   return (
     <div>
-      <LoginPage />
+      <RegisterPage />
     </div>
   );
 }
