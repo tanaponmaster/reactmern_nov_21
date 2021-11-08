@@ -23,18 +23,14 @@ const LoginPage: React.FC<any> = () => {
         type="text"
         name="username"
         id="username"
-        onChange={(e) =>
-          setAccount({ username: e.target.value, password: account.password })
-        }
+        onChange={(e) => setAccount({ ...account, username: e.target.value })}
       />
       <br />
       <input
         type="text"
         name="password"
         id="password"
-        onChange={(e) =>
-          setAccount({ password: e.target.value, username: account.username })
-        }
+        onChange={(e) => setAccount({ ...account, password: e.target.value })}
       />
       <br />
       <span>#Debug: {JSON.stringify(account)}</span>
