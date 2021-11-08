@@ -1,4 +1,5 @@
 import React, { ReactElement } from "react";
+import LoginPage from "./LoginPage";
 
 // // const data = [1,2,3,4,5,6]
 // const data = [
@@ -24,7 +25,7 @@ export default function App({}: Props): ReactElement {
 
   return (
     <div>
-      <h1>1234</h1>
+      <LoginPage />
     </div>
   );
 }
