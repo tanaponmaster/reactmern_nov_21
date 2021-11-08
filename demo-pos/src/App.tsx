@@ -11,14 +11,15 @@ import React, { ReactElement } from "react";
 interface Course {
   title: string;
   price: number;
+  tag?: string;
 }
 
 interface Props {}
 
 export default function App({}: Props): ReactElement {
   const data: Course[] = [
-    { title: "Angular", price: 100 },
-    { title: "React", price: 200 },
+    { title: "Angular", price: 100, tag: "web" },
+    { title: "ReactNative", price: 200, tag: "mobile" },
   ];
 
   return (
