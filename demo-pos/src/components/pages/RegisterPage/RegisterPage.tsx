@@ -74,7 +74,7 @@ export default (props: any) => {
     );
   };
 
-  const initialValue: any = { username: "", password: "" };
+  const initialValue: any = { username: "admin", password: "1234" };
   return (
     <Box sx={classes.root}>
       <Card sx={{ maxWidth: 345 }}>
@@ -84,7 +84,13 @@ export default (props: any) => {
           </Typography>
           <Formik
             initialValues={initialValue}
-            onSubmit={(values, { setSubmitting }) => {}}
+            onSubmit={(values, { setSubmitting }) => {
+              alert(JSON.stringify(values));
+
+              setTimeout(() => {
+                setSubmitting(false);
+              }, 3000);
+            }}
           >
             {showForm}
           </Formik>
