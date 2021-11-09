@@ -15,22 +15,23 @@ const LoginPage: React.FC<any> = () => {
           alert(JSON.stringify(values));
         }}
       >
-        {(props) => (
-          <form onSubmit={props.handleSubmit}>
+        {/* destructuring */}
+        {({ handleSubmit, values, handleChange }) => (
+          <form onSubmit={handleSubmit}>
             <input
               type="text"
               name="username"
               id="username"
-              onChange={props.handleChange}
-              value={props.values.username}
+              onChange={handleChange}
+              value={values.username}
             />
             <br />
             <input
               type="text"
               name="password"
               id="password"
-              onChange={props.handleChange}
-              value={props.values.password}
+              onChange={handleChange}
+              value={values.password}
             />
             <br />
             <button>Submit</button>
