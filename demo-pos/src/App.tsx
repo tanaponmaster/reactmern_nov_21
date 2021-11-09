@@ -9,6 +9,7 @@ import {
   Switch,
 } from "react-router-dom";
 import ShopPage from "./components/pages/ShopPage";
+import StockPage from "./components/pages/StockPage";
 
 interface Props {}
 
@@ -19,6 +20,7 @@ export default function App({}: Props): ReactElement {
         <Switch>
           <Route path="/login" component={LoginPage} />
           <Route path="/register" component={RegisterPage} />
+          <Route path="/stock" component={StockPage} />
           <Route exact path="/" component={() => <Redirect to="/login" />} />
         </Switch>
       </Router>
