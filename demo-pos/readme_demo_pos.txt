@@ -16,3 +16,12 @@ npx crcf -f  --notest --typescript StockCard Payment
 
 
 yarn add @mui/material @emotion/react @emotion/styled @mui/icons-material
+
+
+npm init -y
+
+node server.js
+npx nodemon server.js
+npm init
+
+npx yarn add express body-parser fs-extra formidable cors bcryptjs rand-token jsonwebtoken mongoose mongoose-sequence onesignal-node
