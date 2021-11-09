@@ -19,4 +19,5 @@ db.courses.findOneAndUpdate({title:"angular"}, {$set: {price: 5} })
 
 https://www.mongodb.com/try/download/database-tools
 mongodump -d [db_name] -o [folder to save]
- mongorestore -d [db_name] [folder of dump db]
+mongorestore -d [db_name] [folder of dump db]
+db.users.find().pretty()
