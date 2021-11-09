@@ -28,6 +28,7 @@ import LoginPage from "./components/pages/LoginPage";
 import RegisterPage from "./components/pages/RegisterPage";
 import StockPage from "./components/pages/StockPage";
 import Header from "./components/layouts/Header";
+import Menu from "./components/layouts/Menu";
 
 const drawerWidth = 240;
 
@@ -93,58 +94,14 @@ export default function PersistentDrawerLeft() {
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
-      <CssBaseline />
-      <Header open={open} handleDrawerOpen={handleDrawerOpen} />
-      <Drawer
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          "& .MuiDrawer-paper": {
-            width: drawerWidth,
-            boxSizing: "border-box",
-          },
-        }}
-        variant="persistent"
-        anchor="left"
-        open={open}
-      >
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "ltr" ? (
-              <ChevronLeftIcon />
-            ) : (
-              <ChevronRightIcon />
-            )}
-          </IconButton>
-        </DrawerHeader>
-        <Divider />
-        <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
-      <Main open={open}>
-        <DrawerHeader />
-        <div>
-          <Router basename="">
+    <Router basename="">
+      <Box sx={{ display: "flex" }}>
+        <CssBaseline />
+        <Header open={open} handleDrawerOpen={handleDrawerOpen} />
+        <Menu open={open} handleDrawerClose={handleDrawerClose} />
+        <Main open={open}>
+          <DrawerHeader />
+          <div>
             <Switch>
               <Route path="/login" component={LoginPage} />
               <Route path="/register" component={RegisterPage} />
@@ -155,9 +112,9 @@ export default function PersistentDrawerLeft() {
                 component={() => <Redirect to="/login" />}
               />
             </Switch>
-          </Router>
-        </div>
-      </Main>
-    </Box>
+          </div>
+        </Main>
+      </Box>
+    </Router>
   );
 }
