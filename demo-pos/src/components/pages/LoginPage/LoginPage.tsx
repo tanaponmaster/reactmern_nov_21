@@ -10,17 +10,32 @@ const LoginPage: React.FC<any> = () => {
     <div>
       <h1>Login</h1>
       <Formik
-        initialValues={{ username: "", password: "" }}
+        initialValues={{ username: "admin", password: "" }}
         onSubmit={(values, { setSubmitting }) => {
           alert(JSON.stringify(values));
-        }}        
+        }}
       >
-       {props =>(
-         <form>
-           
-         </form>
-       ) }
-
+        {(props) => (
+          <form onSubmit={props.handleSubmit}>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              onChange={props.handleChange}
+              value={props.values.username}
+            />
+            <br />
+            <input
+              type="text"
+              name="password"
+              id="password"
+              onChange={props.handleChange}
+              value={props.values.password}
+            />
+            <br />
+            <button>Submit</button>
+          </form>
+        )}
       </Formik>
     </div>
   );
