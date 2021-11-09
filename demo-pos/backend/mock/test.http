@@ -1,0 +1,7 @@
+
+### login
+POST http://localhost:8081/api/v2/login HTTP/1.1
+
+
+### register
+GET http://localhost:8081/api/v2/register HTTP/1.1
