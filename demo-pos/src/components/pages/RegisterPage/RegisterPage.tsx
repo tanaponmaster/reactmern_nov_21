@@ -27,7 +27,7 @@ export default (props: any) => {
     return (
       <form noValidate onSubmit={handleSubmit}>
         <TextField
-          variant="outlined"
+          variant="standard"
           margin="normal"
           required
           fullWidth
@@ -39,7 +39,7 @@ export default (props: any) => {
           autoFocus
         />
         <TextField
-          variant="outlined"
+          variant="standard"
           margin="normal"
           required
           fullWidth
