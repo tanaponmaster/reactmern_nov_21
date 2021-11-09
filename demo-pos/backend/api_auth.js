@@ -6,8 +6,9 @@ router.post("/login", (req, res) => {
   res.json({ result: "login", echo: req.body });
 });
 
-router.post("/register", (req, res) => {
-  Users.create(req.body);
+// db.users.find().pretty()
+router.post("/register", async (req, res) => {
+  await Users.create(req.body);
   res.json({ result: "register", echo: req.body });
 });
 
