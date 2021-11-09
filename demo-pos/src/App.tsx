@@ -93,7 +93,15 @@ export default function PersistentDrawerLeft() {
     setOpen(false);
   };
 
-  const SecuredRoute = () => <Route path="/stock" component={StockPage} />;
+  // Protected Route
+  const SecuredRoute = (props: RouteProps) => (
+    <Route
+      render={(props) => (
+        // ternary condition
+        <Redirect to="/login" />
+      )}
+    />
+  );
 
   return (
     <Router basename="">
@@ -107,7 +115,7 @@ export default function PersistentDrawerLeft() {
             <Switch>
               <Route path="/login" component={LoginPage} />
               <Route path="/register" component={RegisterPage} />
-              <SecuredRoute />
+              <SecuredRoute path="/stock" component={StockPage} />
               <Route
                 exact
                 path="/"
