@@ -13,3 +13,6 @@ npx crcf -f  --notest --typescript Header Menu
 
 // src/components/fragments
 npx crcf -f  --notest --typescript StockCard Payment
+
+
+yarn add @mui/material @emotion/react @emotion/styled @mui/icons-material
