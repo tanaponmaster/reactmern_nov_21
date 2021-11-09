@@ -93,6 +93,8 @@ export default function PersistentDrawerLeft() {
     setOpen(false);
   };
 
+  const SecuredRoute = () => <Route path="/stock" component={StockPage} />;
+
   return (
     <Router basename="">
       <Box sx={{ display: "flex" }}>
@@ -105,7 +107,7 @@ export default function PersistentDrawerLeft() {
             <Switch>
               <Route path="/login" component={LoginPage} />
               <Route path="/register" component={RegisterPage} />
-              <Route path="/stock" component={StockPage} />
+              <SecuredRoute />
               <Route
                 exact
                 path="/"
