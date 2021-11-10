@@ -29,4 +29,16 @@ router.get("/test", tokenIntercept1, tokenIntercept2, (req, res) => {
   res.json({ result: "pass intercept" });
 });
 
+// Get single
+router.get("/product/id/:id", async (req, res) => {
+  let doc = await Products.findOne({ product_id: req.params.id });
+  res.json(doc);
+});
+
+// Delete Product
+router.delete("/product/id/:id", async (req, res) => {
+  let doc = await Products.findOneAndDelete({ product_id: req.params.id });
+  res.json({ result: "ok", message: JSON.stringify(doc) });
+});
+
 module.exports = router;
