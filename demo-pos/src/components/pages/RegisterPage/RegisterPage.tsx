@@ -9,7 +9,7 @@ import { Formik } from "formik";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { SxProps } from "@mui/system";
-import axios from "axios";
+import {httpClient} from "./../../../utils/HttpClient";
 
 const classes: SxProps = {
   root: { display: "flex", justifyContent: "center", alignItems: "center" },
@@ -86,11 +86,7 @@ export default (props: any) => {
           <Formik
             initialValues={initialValue}
             onSubmit={async (values, { setSubmitting }) => {
-              const result = await axios.post(
-                "http://localhost:8081/api/v2/register",
-                values
-              );
-              alert(JSON.stringify(result.data));
+              
 
               setSubmitting(false);
             }}
