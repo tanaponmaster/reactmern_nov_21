@@ -5,7 +5,26 @@ var bcrypt = require("bcryptjs");
 
 router.post("/login", async (req, res) => {
   let doc = await Users.findOne({ username: req.body.username });
-  res.json({ result: "login", echo: doc });
+  if (doc) {
+    if (bcrypt.compareSync(req.body.password, doc.password)) {
+      res.json({
+        result: "ok",
+        message: "Login successfully",
+      });
+    } else {
+      // error password
+      res.json({
+        result: "nok",
+        message: "Invalid password",
+      });
+    }
+  } else {
+    // error username
+    res.json({
+      result: "nok",
+      message: "Invalid username",
+    });
+  }
 });
 
 // db.users.find().pretty()
