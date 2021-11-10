@@ -3,14 +3,21 @@ const router = express.Router();
 const Users = require("./models/user_schema");
 const Comments = require("./models/comments_schema");
 var bcrypt = require("bcryptjs");
+const jwt = require("./jwt");
 
 // login
 router.post("/login", async (req, res) => {
   let doc = await Users.findOne({ username: req.body.username });
   if (doc) {
+    // check username
     if (bcrypt.compareSync(req.body.password, doc.password)) {
+      // check password
+
+      const token = jwt.sign(req.body, 1000);
+
       res.json({
         result: "ok",
+        token,
         message: "Login successfully",
       });
     } else {
