@@ -10,6 +10,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { SxProps } from "@mui/system";
 import {httpClient} from "./../../../utils/HttpClient";
+import { server } from "../../../constants";
 
 const classes: SxProps = {
   root: { display: "flex", justifyContent: "center", alignItems: "center" },
@@ -86,7 +87,7 @@ export default (props: any) => {
           <Formik
             initialValues={initialValue}
             onSubmit={async (values, { setSubmitting }) => {
-              
+              httpClient.post(server)
 
               setSubmitting(false);
             }}
