@@ -87,7 +87,7 @@ export default (props: any) => {
           <Formik
             initialValues={initialValue}
             onSubmit={async (values, { setSubmitting }) => {
-              const result = await httpClient.post(server.REGISTER_URL);
+              const result = await httpClient.post(server.REGISTER_URL, values);
               alert(JSON.stringify(result.data));
 
               setSubmitting(false);
