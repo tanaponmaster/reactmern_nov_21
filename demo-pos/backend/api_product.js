@@ -13,9 +13,14 @@ router.get("/product", jwt.verify, async (req, res) => {
 // http://localhost:8081/api/v2/product
 router.get("/product/name/:keyword", jwt.verify, async (req, res) => {
   var query = { name: new RegExp("^.*" + req.params.keyword + ".*$", "i") };
-
   const result = await Products.find(query);
   res.json(result);
+});
+
+// http://localhost:8081/api/v2/travel/bkk/ny
+router.get("/travel/:from/:to", async (req, res) => {
+  const { from, to } = req.params;
+  res.json({ begin: from, dest: to });
 });
 
 // intercept demo
