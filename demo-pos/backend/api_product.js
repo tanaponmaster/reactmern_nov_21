@@ -9,8 +9,19 @@ router.get("/product", async (req, res) => {
 });
 
 // intercept demo
-router.get("/test", (req, res) => {
-  res.json({ result: "pass intercept" });
-});
+router.get(
+  "/test",
+  (req, res, next) => {
+    if (req.query.token == "1234") {
+      next();
+    } else {
+      res.end("invalid token");
+    }
+  },
+  (req, res) => {
+    res.json({ result: "pass intercept" });
+  }
+);
 
 module.exports = router;
+
