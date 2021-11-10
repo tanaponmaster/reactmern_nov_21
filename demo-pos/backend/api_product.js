@@ -3,6 +3,7 @@ const router = express.Router();
 const Products = require("./models/product_schema");
 const { tokenIntercept1, tokenIntercept2 } = require("./demo_intercept");
 const jwt = require("./jwt");
+const formidable = require("formidable");
 
 // http://localhost:8081/api/v2/product
 router.get("/product", jwt.verify, async (req, res) => {
