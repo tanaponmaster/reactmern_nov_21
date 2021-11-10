@@ -13,7 +13,13 @@ router.post("/login", async (req, res) => {
     if (bcrypt.compareSync(req.body.password, doc.password)) {
       // check password
 
-      const token = jwt.sign(req.body, 1000);
+      const payload = {
+        id: doc._id,
+        level: doc.level,
+        username: doc.username,
+      };
+
+      const token = jwt.sign(payload, 1000);
 
       res.json({
         result: "ok",
