@@ -4,9 +4,17 @@ const Products = require("./models/product_schema");
 const { tokenIntercept1, tokenIntercept2 } = require("./demo_intercept");
 const jwt = require("./jwt");
 
-// http://localhost:8081/api/v2/product?token1=1234&token2=4321
-router.get("/product",jwt.verify, async (req, res) => {
+// http://localhost:8081/api/v2/product
+router.get("/product", jwt.verify, async (req, res) => {
   const result = await Products.find();
+  res.json(result);
+});
+
+// http://localhost:8081/api/v2/product
+router.get("/product/name/:keyword", jwt.verify, async (req, res) => {
+  var query = { name: new RegExp("^.*" + req.params.keyword + ".*$", "i") };
+
+  const result = await Products.find(query);
   res.json(result);
 });
 
