@@ -9,7 +9,7 @@ import { Formik } from "formik";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { SxProps } from "@mui/system";
-import {httpClient} from "./../../../utils/HttpClient";
+import { httpClient } from "./../../../utils/HttpClient";
 import { server } from "../../../constants";
 
 const classes: SxProps = {
@@ -87,7 +87,8 @@ export default (props: any) => {
           <Formik
             initialValues={initialValue}
             onSubmit={async (values, { setSubmitting }) => {
-              httpClient.post(server)
+              const result = await httpClient.post(server.REGISTER_URL);
+              alert(JSON.stringify(result.data));
 
               setSubmitting(false);
             }}
