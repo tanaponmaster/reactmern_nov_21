@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Users = require("./models/user_schema");
+const Comments = require("./models/comments_schema");
 var bcrypt = require("bcryptjs");
 
 router.post("/login", async (req, res) => {
@@ -38,8 +39,9 @@ router.post("/register", async (req, res) => {
   }
 });
 
-router.post("/comments", async (req, res) => {
-  await Users.create(req.body);
+// comment
+router.post("/comment", async (req, res) => {
+  await Comments.create(req.body);
   res.json({ result: "ok" });
 });
 
