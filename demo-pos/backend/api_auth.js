@@ -4,6 +4,7 @@ const Users = require("./models/user_schema");
 const Comments = require("./models/comments_schema");
 var bcrypt = require("bcryptjs");
 
+// login
 router.post("/login", async (req, res) => {
   let doc = await Users.findOne({ username: req.body.username });
   if (doc) {
@@ -28,7 +29,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// db.users.find().pretty()
+// register
 router.post("/register", async (req, res) => {
   try {
     req.body.password = await bcrypt.hash(req.body.password, 8);

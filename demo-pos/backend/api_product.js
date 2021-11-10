@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const Products = require("./models/product_schema");
 
-
-router.get("/product", (req, res) => {
-    res.json({ result: "product" });
-  });
-
+// http://localhost:8081/api/v2/product
+router.get("/product", async (req, res) => {
+  const result = await Products.find();
+  res.json(result);
+});
 
 module.exports = router;
