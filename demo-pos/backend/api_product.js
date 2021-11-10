@@ -9,6 +9,7 @@ router.get("/product", async (req, res) => {
 });
 
 // intercept demo
+// http://localhost:8081/api/v2/test?token=1234
 router.get(
   "/test",
   (req, res, next) => {
@@ -24,4 +25,3 @@ router.get(
 );
 
 module.exports = router;
-
