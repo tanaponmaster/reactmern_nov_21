@@ -8,4 +8,9 @@ router.get("/product", async (req, res) => {
   res.json(result);
 });
 
+// intercept demo
+router.get("/test", (req, res) => {
+  res.json({ result: "pass intercept" });
+});
+
 module.exports = router;
