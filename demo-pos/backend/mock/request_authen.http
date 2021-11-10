@@ -15,3 +15,12 @@ Content-Type: application/json
     "username": "eee",
     "password" : "1234"
 }
+
+### Comment
+POST http://localhost:8081/api/v2/comment HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "system is very slow",
+    "detail" : "I found the problem..."
+}
