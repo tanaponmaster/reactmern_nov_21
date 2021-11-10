@@ -4,6 +4,8 @@ const Products = require("./models/product_schema");
 const { tokenIntercept1, tokenIntercept2 } = require("./demo_intercept");
 const jwt = require("./jwt");
 const formidable = require("formidable");
+const path = require("path");
+const fs = require("fs-extra");
 
 // http://localhost:8081/api/v2/product
 router.get("/product", jwt.verify, async (req, res) => {
@@ -47,9 +49,10 @@ uploadImage = async (files, doc) => {
   if (files.image != null) {
     var fileExtention = files.image.originalFilename.split(".")[1];
     doc.image = `${doc.product_id}.${fileExtention}`;
-    var newpath = path.resolve(__dirname + "/uploaded/images/") + "/" + doc.image;
+    var newpath =
+      path.resolve(__dirname + "/uploaded/images/") + "/" + doc.image;
 
-    if (fs.exists(newpath)) {
+    if (fs.existsSync(newpath)) {
       await fs.remove(newpath);
     }
     await fs.move(files.image.filepath, newpath);
@@ -58,7 +61,6 @@ uploadImage = async (files, doc) => {
     await Products.findOneAndUpdate({ product_id: doc.product_id }, doc);
   }
 };
-
 
 // Add Product
 router.post("/product", async (req, res) => {
