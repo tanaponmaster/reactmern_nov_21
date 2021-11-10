@@ -3,7 +3,7 @@ const router = express.Router();
 const Products = require("./models/product_schema");
 const { tokenIntercept1, tokenIntercept2 } = require("./demo_intercept");
 
-// http://localhost:8081/api/v2/product
+// http://localhost:8081/api/v2/product?token1=1234&token2=4321
 router.get("/product", tokenIntercept1, tokenIntercept2, async (req, res) => {
   const result = await Products.find();
   res.json(result);
