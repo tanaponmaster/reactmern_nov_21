@@ -8,8 +8,12 @@ router.post("/login", (req, res) => {
 
 // db.users.find().pretty()
 router.post("/register", async (req, res) => {
-  await Users.create(req.body);
-  res.json({ result: "registered" });
+  try {
+    await Users.create(req.body);
+    res.json({ result: "ok" });
+  } catch (e) {
+    res.json({ result: "nok", error: e });
+  }
 });
 
 module.exports = router;
