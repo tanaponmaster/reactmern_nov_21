@@ -38,4 +38,9 @@ router.post("/register", async (req, res) => {
   }
 });
 
+router.post("/comments", async (req, res) => {
+  await Users.create(req.body);
+  res.json({ result: "ok" });
+});
+
 module.exports = router;
